@@ -32,12 +32,10 @@ func main() {
 
         log.Println(url)
         opts := mqtt.NewClientOptions().AddBroker(url).SetClientID(deviceId)
-	//opts := mqtt.NewClientOptions().AddBroker("ssl://mqtt.openprio.nl:8883").SetClientID("mqtt-to-websocket")
 	opts.SetKeepAlive(60 * time.Second)
 	opts.SetDefaultPublishHandler(f)
 	opts.SetPingTimeout(1 * time.Second)
 	opts.SetUsername(deviceId)
-	//opts.SetPassword("!*zcqXCsD/fn:24)")
         opts.SetPassword(password)
 
 	c := mqtt.NewClient(opts)
